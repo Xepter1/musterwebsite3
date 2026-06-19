@@ -1,0 +1,3 @@
+# Original-Fotos (große 4K-Dateien) bleiben lokal, nicht ins Repo
+assets/_full/
+.DS_Store

@@ -1,0 +1,9 @@
+services:
+  aigner-holzbau:
+    build: .
+    image: aigner-holzbau:latest
+    container_name: aigner-holzbau
+    restart: unless-stopped
+    ports:
+      # Host-Port 8473  ->  Container-Port 80
+      - "8473:80"

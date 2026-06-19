@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AIGNER Holzbau — Meisterhafter Holzbau aus Niederbayern</title>
+<meta name="description" content="AIGNER Holzbau – Meisterbetrieb für Dachstühle, Holzhäuser, Carports und Innenausbau aus Niederbayern. Holzbau, der bleibt." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bone:#f1e9da;
+  --bone-2:#e7dcc8;
+  --cream:#faf6ec;
+  --espresso:#1b1409;
+  --bark:#28200f;
+  --ink:#241a0e;
+  --ink-2:#3c3120;
+  --muted:#7a6c54;
+  --muted-2:#9b8c72;
+  --wood:#bd6b2c;        /* accent */
+  --wood-2:#a3551e;
+  --ember:#d08a36;
+  --line:rgba(36,26,14,.16);
+  --line-soft:rgba(36,26,14,.08);
+  --shadow:0 30px 60px -24px rgba(27,20,9,.45);
+  --maxw:1240px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Hanken Grotesk",-apple-system,system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  background:var(--bone);
+  color:var(--ink);
+  font-size:clamp(16px,1.05vw,18px);
+  line-height:1.6;
+  overflow-x:hidden;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--wood);color:var(--cream)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.02em}
+
+/* grain overlay */
+body::before{
+  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+.eyebrow{
+  font-family:var(--sans);font-weight:600;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--wood-2);display:inline-flex;align-items:center;gap:.7em;
+}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:var(--wood);display:inline-block}
+
+/* ============ HEADER ============ */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .4s var(--ease),box-shadow .4s var(--ease),padding .4s var(--ease);
+  padding:22px 0;
+}
+header.scrolled{background:rgba(241,233,218,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line-soft);padding:14px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:1.4rem;letter-spacing:-.02em;font-weight:500}
+.brand .logomark{width:34px;height:34px;flex:0 0 auto}
+.brand b{font-weight:600}
+.brand span{color:var(--wood-2)}
+nav ul{list-style:none;display:flex;gap:30px;align-items:center}
+nav a{font-size:.92rem;font-weight:500;color:var(--ink-2);position:relative;padding:4px 0}
+nav a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1.5px;background:var(--wood);transition:width .35s var(--ease)}
+nav a:hover{color:var(--ink)}
+nav a:hover::after{width:100%}
+.btn{
+  font-family:var(--sans);font-weight:600;font-size:.92rem;cursor:pointer;border:none;
+  display:inline-flex;align-items:center;gap:.6em;padding:.82em 1.5em;border-radius:100px;
+  background:var(--espresso);color:var(--cream);transition:transform .3s var(--ease),background .3s var(--ease),box-shadow .3s var(--ease);
+}
+.btn:hover{transform:translateY(-2px);background:var(--wood-2);box-shadow:0 14px 28px -12px rgba(163,85,30,.6)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.ghost:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.btn .arr{transition:transform .3s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+.nav-cta{display:flex;align-items:center;gap:18px}
+.nav-cta .tel{font-weight:600;font-size:.92rem;display:flex;align-items:center;gap:.5em}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:26px;height:2px;background:var(--ink);transition:.3s var(--ease)}
+
+/* ============ HERO ============ */
+.hero{position:relative;padding:170px 0 90px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(120% 90% at 88% 0%,rgba(208,138,54,.16),transparent 55%),
+    radial-gradient(90% 80% at 0% 100%,rgba(163,85,30,.1),transparent 60%);
+}
+.hero .wrap{position:relative;z-index:2}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.badge{
+  display:inline-flex;align-items:center;gap:.6em;background:var(--cream);border:1px solid var(--line);
+  padding:.5em 1em;border-radius:100px;font-size:.8rem;font-weight:600;color:var(--ink-2);margin-bottom:26px;
+}
+.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--wood);box-shadow:0 0 0 4px rgba(189,107,44,.18)}
+h1{font-size:clamp(2.9rem,6.6vw,5.6rem);font-weight:340;letter-spacing:-.035em}
+h1 .it{font-style:italic;font-weight:340;color:var(--wood-2)}
+h1 em{font-style:italic;font-weight:340}
+.hero p.lead{font-size:clamp(1.05rem,1.5vw,1.28rem);color:var(--muted);max-width:40ch;margin:28px 0 36px;line-height:1.55}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.hero-meta{display:flex;gap:34px;margin-top:48px;padding-top:30px;border-top:1px solid var(--line-soft)}
+.hero-meta div .n{font-family:var(--serif);font-size:2rem;font-weight:500;line-height:1;display:block}
+.hero-meta div .l{font-size:.82rem;color:var(--muted);margin-top:6px;display:block}
+
+/* hero truss illustration */
+.truss-card{
+  position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/4.4;
+  background:
+    linear-gradient(150deg,#2a2010,#171008 70%);
+  box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06);
+}
+.truss-card .label{
+  position:absolute;left:22px;top:22px;z-index:3;color:#e9dcc4;font-size:.74rem;letter-spacing:.18em;
+  text-transform:uppercase;font-weight:600;display:flex;align-items:center;gap:.6em;
+}
+.truss-card .label::before{content:"";width:18px;height:1.5px;background:var(--ember)}
+.truss-card .caption{
+  position:absolute;left:22px;right:22px;bottom:22px;z-index:3;color:#cdbb9c;font-size:.82rem;
+  display:flex;justify-content:space-between;border-top:1px solid rgba(233,220,196,.16);padding-top:14px;
+}
+.truss-card svg{position:absolute;inset:0;width:100%;height:100%}
+.truss-card .grid-bg{position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(208,138,54,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(208,138,54,.07) 1px,transparent 1px);
+  background-size:34px 34px;}
+.draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.6s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* floating spec chip */
+.spec-chip{
+  position:absolute;background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:12px 16px;
+  box-shadow:0 16px 30px -16px rgba(27,20,9,.4);z-index:4;display:flex;gap:11px;align-items:center;
+}
+.spec-chip .ic{width:34px;height:34px;border-radius:9px;background:var(--bone-2);display:grid;place-items:center;color:var(--wood-2)}
+.spec-chip .t{font-size:.72rem;color:var(--muted);line-height:1.3}
+.spec-chip .t b{display:block;font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600}
+.spec-chip.one{right:-14px;top:24%;animation:float 6s ease-in-out infinite}
+.spec-chip.two{left:-22px;bottom:18%;animation:float 6s ease-in-out infinite .8s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* ============ MARQUEE ============ */
+.marquee{background:var(--espresso);color:#d8c8aa;padding:18px 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-flex;gap:54px;animation:scroll 26s linear infinite;will-change:transform}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{font-family:var(--serif);font-style:italic;font-size:1.15rem;display:inline-flex;align-items:center;gap:54px;opacity:.92}
+.marquee span::after{content:"✕";font-style:normal;color:var(--ember);font-size:.7rem}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ============ SECTION SHELL ============ */
+section{position:relative}
+.sec{padding:clamp(80px,11vw,140px) 0}
+.sec-head{max-width:760px;margin-bottom:64px}
+.sec-head h2{font-size:clamp(2.1rem,4.6vw,3.6rem);font-weight:330;margin-top:18px;letter-spacing:-.03em}
+.sec-head h2 em{font-style:italic;color:var(--wood-2)}
+.sec-head p{color:var(--muted);font-size:1.08rem;margin-top:18px;max-width:56ch}
+
+/* ============ SERVICES ============ */
+.services{background:var(--cream)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:20px;overflow:hidden}
+.svc{background:var(--cream);padding:38px 34px;transition:background .4s var(--ease);position:relative;min-height:280px;display:flex;flex-direction:column}
+.svc:hover{background:var(--bone)}
+.svc .num{font-family:var(--serif);font-size:.9rem;color:var(--muted-2);font-style:italic}
+.svc .ic{width:46px;height:46px;color:var(--wood-2);margin:18px 0 22px;transition:transform .4s var(--ease)}
+.svc:hover .ic{transform:translateY(-4px) rotate(-4deg)}
+.svc h3{font-size:1.55rem;font-weight:430;margin-bottom:10px}
+.svc p{color:var(--muted);font-size:.96rem;flex:1}
+.svc .more{margin-top:18px;font-weight:600;font-size:.88rem;color:var(--wood-2);display:inline-flex;gap:.4em;opacity:0;transform:translateX(-6px);transition:.4s var(--ease)}
+.svc:hover .more{opacity:1;transform:translateX(0)}
+
+/* ============ PROJECTS ============ */
+.projects{background:var(--bone)}
+.proj-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:50px}
+.proj-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.proj{
+  position:relative;border-radius:18px;overflow:hidden;min-height:300px;cursor:pointer;
+  background-size:cover;background-position:center;
+  display:flex;align-items:flex-end;padding:26px;color:#f6eedd;isolation:isolate;
+  border:1px solid rgba(255,255,255,.05);box-shadow:0 20px 40px -28px rgba(27,20,9,.5);
+}
+.proj::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--ph);transition:transform .8s var(--ease)}
+.proj:hover::before{transform:scale(1.06)}
+.proj::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(20,14,6,.82) 0%,rgba(20,14,6,.15) 55%,transparent 80%)}
+.proj .meta{position:relative;z-index:2;transition:transform .45s var(--ease)}
+.proj:hover .meta{transform:translateY(-4px)}
+.proj .tag{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--ember);margin-bottom:8px;display:block}
+.proj h3{font-size:1.5rem;font-weight:440;color:#fbf5ea}
+.proj .loc{font-size:.86rem;opacity:.78;margin-top:4px}
+.proj .open{position:absolute;top:22px;right:22px;z-index:2;width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(246,238,221,.4);display:grid;place-items:center;transition:.4s var(--ease)}
+.proj:hover .open{background:var(--cream);color:var(--espresso);border-color:var(--cream);transform:rotate(45deg)}
+.proj.big{grid-column:span 4;min-height:440px}
+.proj.tall{grid-column:span 2;min-height:440px}
+.proj.wide{grid-column:span 3}
+/* project photos (swap file to change image) */
+.p1{--ph:url("assets/wohnhaus-isarhang.jpg") center/cover no-repeat}
+.p2{--ph:url("assets/pfettendach-vierseithof.jpg") center/cover no-repeat}
+.p3{--ph:url("assets/geschossaufbau.jpg") center/cover no-repeat}
+.p4{--ph:url("assets/carport-laerche.jpg") center/cover no-repeat}
+.p5{--ph:url("assets/denkmal-dachsanierung.jpg") center/cover no-repeat}
+.p6{--ph:url("assets/sichtdachstuhl-loft.jpg") center/cover no-repeat}
+.proj .woodlines{display:none}
+
+/* ============ WHY WOOD (dark band) ============ */
+.why{background:var(--espresso);color:#ece0cc;overflow:hidden}
+.why .wrap{position:relative;z-index:2}
+.why .sec-head h2{color:var(--cream)}
+.why .sec-head p{color:#bca988}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:20px}
+.why-card{border:1px solid rgba(236,224,204,.13);border-radius:16px;padding:30px 26px;transition:.4s var(--ease);background:rgba(255,255,255,.015)}
+.why-card:hover{background:rgba(208,138,54,.08);border-color:rgba(208,138,54,.4);transform:translateY(-5px)}
+.why-card .ic{width:40px;height:40px;color:var(--ember);margin-bottom:20px}
+.why-card h3{color:var(--cream);font-size:1.3rem;margin-bottom:10px;font-weight:440}
+.why-card p{color:#b6a586;font-size:.92rem}
+.why-deco{position:absolute;right:-60px;top:-40px;width:420px;opacity:.12;z-index:0;color:var(--ember)}
+
+/* ============ PROCESS ============ */
+.process{background:var(--cream)}
+.steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:30px}
+.steps::before{content:"";position:absolute;top:30px;left:6%;right:6%;height:1.5px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 16px)}
+.step{position:relative}
+.step .dot{width:60px;height:60px;border-radius:50%;background:var(--bone);border:1.5px solid var(--line);display:grid;place-items:center;font-family:var(--serif);font-size:1.4rem;color:var(--wood-2);margin-bottom:24px;position:relative;z-index:2;transition:.4s var(--ease)}
+.step:hover .dot{background:var(--wood-2);color:var(--cream);border-color:var(--wood-2);transform:scale(1.05)}
+.step h3{font-size:1.35rem;margin-bottom:10px;font-weight:440}
+.step p{color:var(--muted);font-size:.94rem}
+
+/* ============ ABOUT / SPLIT ============ */
+.about{background:var(--bone)}
+.about-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center}
+.about-vis{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:5/5.6;background:linear-gradient(160deg,#5f3c1c,#221206);box-shadow:var(--shadow)}
+.about-vis .grid-bg{position:absolute;inset:0;opacity:.4;background-image:linear-gradient(rgba(208,138,54,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(208,138,54,.08) 1px,transparent 1px);background-size:38px 38px}
+.about-vis svg{position:absolute;inset:0;width:100%;height:100%}
+.about-vis .stamp{position:absolute;right:24px;bottom:24px;width:118px;height:118px;color:var(--ember);opacity:.9;animation:spin 26s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.about h2{font-size:clamp(2rem,4.4vw,3.4rem);font-weight:330;letter-spacing:-.03em;margin:16px 0 22px}
+.about h2 em{font-style:italic;color:var(--wood-2)}
+.about p{color:var(--muted);margin-bottom:18px;max-width:50ch}
+.sign{font-family:var(--serif);font-style:italic;font-size:1.8rem;color:var(--ink);margin-top:8px}
+.sign small{display:block;font-family:var(--sans);font-style:normal;font-size:.82rem;color:var(--muted);letter-spacing:.04em;margin-top:4px}
+.about-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin:26px 0 6px}
+.about-list li{display:flex;gap:.7em;align-items:center;font-weight:500;font-size:.96rem}
+.about-list svg{color:var(--wood-2);flex:0 0 auto}
+
+/* ============ STATS STRIP ============ */
+.stats{background:var(--espresso);color:var(--cream)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.stat .n{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4rem);font-weight:400;line-height:1;color:var(--ember)}
+.stat .l{color:#c2b094;margin-top:12px;font-size:.94rem;letter-spacing:.02em}
+
+/* ============ TESTIMONIALS ============ */
+.testi{background:var(--cream)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.quote{background:var(--bone);border:1px solid var(--line-soft);border-radius:18px;padding:34px 30px;display:flex;flex-direction:column;transition:.4s var(--ease)}
+.quote:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--line)}
+.quote .stars{color:var(--ember);letter-spacing:3px;margin-bottom:18px;font-size:.95rem}
+.quote p{font-family:var(--serif);font-size:1.18rem;line-height:1.45;font-weight:380;flex:1;color:var(--ink-2)}
+.quote .who{display:flex;align-items:center;gap:13px;margin-top:24px}
+.quote .av{width:44px;height:44px;border-radius:50%;background:var(--wood-2);color:var(--cream);display:grid;place-items:center;font-family:var(--serif);font-size:1.1rem}
+.quote .who b{display:block;font-weight:600;font-size:.96rem}
+.quote .who span{font-size:.84rem;color:var(--muted)}
+
+/* ============ CAREER ============ */
+.career{background:var(--wood-2);color:var(--cream);position:relative;overflow:hidden}
+.career .wrap{position:relative;z-index:2}
+.career-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.career .eyebrow{color:#ffe6c8}
+.career .eyebrow::before{background:#ffe6c8}
+.career h2{font-size:clamp(2rem,4.4vw,3.3rem);font-weight:330;letter-spacing:-.03em;margin:16px 0 18px;color:var(--cream)}
+.career h2 em{font-style:italic}
+.career p{color:#fbe9d4;max-width:48ch;margin-bottom:28px}
+.jobs{display:flex;flex-direction:column;gap:12px}
+.job{display:flex;justify-content:space-between;align-items:center;gap:20px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:20px 24px;transition:.35s var(--ease)}
+.job:hover{background:var(--cream);color:var(--espresso);transform:translateX(6px)}
+.job b{font-family:var(--serif);font-size:1.25rem;font-weight:500}
+.job .type{font-size:.82rem;opacity:.85}
+.job .go{width:38px;height:38px;border-radius:50%;border:1.5px solid currentColor;display:grid;place-items:center;flex:0 0 auto;transition:.3s var(--ease)}
+.job:hover .go{background:var(--wood-2);color:var(--cream);border-color:var(--wood-2)}
+.career-deco{position:absolute;right:-80px;bottom:-80px;width:460px;opacity:.16;color:#fff;z-index:0}
+
+/* ============ CONTACT ============ */
+.contact{background:var(--bone)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px}
+.contact-info h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:330;letter-spacing:-.03em;margin:16px 0 22px}
+.contact-info h2 em{font-style:italic;color:var(--wood-2)}
+.contact-info p{color:var(--muted);margin-bottom:30px;max-width:42ch}
+.cinfo{display:flex;flex-direction:column;gap:6px;margin-bottom:22px}
+.cinfo a,.cinfo span{display:flex;gap:13px;align-items:center;font-weight:500;padding:6px 0}
+.cinfo svg{color:var(--wood-2);flex:0 0 auto}
+.cinfo .lbl{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);font-weight:600;margin-top:8px}
+.form{background:var(--cream);border:1px solid var(--line-soft);border-radius:22px;padding:40px;box-shadow:var(--shadow)}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:8px;color:var(--ink-2)}
+.field input,.field select,.field textarea{
+  width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:11px;background:var(--bone);
+  font-family:var(--sans);font-size:.98rem;color:var(--ink);transition:.3s var(--ease);
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--wood);background:var(--cream);box-shadow:0 0 0 4px rgba(189,107,44,.12)}
+.field textarea{resize:vertical;min-height:110px}
+.form .btn{width:100%;justify-content:center;margin-top:8px;font-size:1rem;padding:1.05em}
+.form .fine{font-size:.78rem;color:var(--muted);margin-top:16px;text-align:center}
+
+/* ============ FOOTER ============ */
+footer{background:var(--espresso);color:#bca988;padding:80px 0 36px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid rgba(236,224,204,.1)}
+.foot-brand .brand{color:var(--cream);margin-bottom:20px}
+.foot-brand p{max-width:34ch;font-size:.94rem}
+.foot-col h4{font-family:var(--sans);font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#8a7a5f;margin-bottom:18px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.foot-col a{font-size:.94rem;transition:color .3s}
+.foot-col a:hover{color:var(--ember)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:28px;font-size:.86rem}
+.foot-bot .made{color:#7a6c50}
+.foot-bot .made a{color:var(--ember);font-weight:600}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.4s}
+
+/* hero load anim */
+.hero .anim{opacity:0;transform:translateY(26px);animation:rise .95s var(--ease) forwards}
+.hero .a1{animation-delay:.1s}.hero .a2{animation-delay:.24s}.hero .a3{animation-delay:.38s}.hero .a4{animation-delay:.52s}.hero .a5{animation-delay:.66s}
+.hero-right{opacity:0;transform:translateY(26px) scale(.97);animation:rise .95s var(--ease) .3s forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;gap:54px}
+  .hero-right{max-width:460px}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr);gap:40px}
+  .steps::before{display:none}
+  .about-grid,.career-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .testi-grid{grid-template-columns:1fr}
+  .proj.big,.proj.tall,.proj.wide{grid-column:span 6}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:40px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:680px){
+  nav ul,.nav-cta .tel,.nav-cta .btn{display:none}
+  .burger{display:flex}
+  .mobile-open nav ul{display:flex;position:fixed;inset:0;top:0;background:var(--bone);flex-direction:column;justify-content:center;align-items:center;gap:34px;font-size:1.5rem;z-index:90}
+  .mobile-open nav a{font-family:var(--serif)}
+  .svc-grid{grid-template-columns:1fr}
+  .why-grid,.foot-grid{grid-template-columns:1fr}
+  .form .row{grid-template-columns:1fr}
+  .form{padding:28px}
+  .hero-meta{flex-wrap:wrap;gap:24px}
+  .about-list{grid-template-columns:1fr}
+  .spec-chip{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand" aria-label="AIGNER Holzbau Startseite">
+      <svg class="logomark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="37" height="37" rx="9" stroke="#a3551e" stroke-width="1.5"/>
+        <path d="M8 27 L20 9 L32 27" stroke="#bd6b2c" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M13 27 L20 16 L27 27 M20 9 V20" stroke="#a3551e" stroke-width="1.6"/>
+        <line x1="8" y1="27" x2="32" y2="27" stroke="#bd6b2c" stroke-width="2"/>
+      </svg>
+      <span style="font-weight:600">AIGNER</span><b>Holzbau</b>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#projekte">Projekte</a></li>
+        <li><a href="#ueber">Über uns</a></li>
+        <li><a href="#karriere">Karriere</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+498711234567" class="tel">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0871 123456 7</a>
+      <a href="#kontakt" class="btn">Angebot anfragen <span class="arr">→</span></a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="badge anim a1"><span class="dot"></span> Meisterbetrieb seit 1989 · Niederbayern</div>
+        <h1 class="anim a2">Holzbau,<br>der <span class="it">bleibt.</span></h1>
+        <p class="lead anim a3">Vom Dachstuhl bis zum schlüsselfertigen Holzhaus — wir verbinden traditionelles Zimmererhandwerk mit moderner Abbundtechnik. Ehrlich, präzise, aus einer Hand.</p>
+        <div class="hero-cta anim a4">
+          <a href="#kontakt" class="btn">Projekt besprechen <span class="arr">→</span></a>
+          <a href="#projekte" class="btn ghost">Referenzen ansehen</a>
+        </div>
+        <div class="hero-meta anim a5">
+          <div><span class="n">35+</span><span class="l">Jahre Erfahrung</span></div>
+          <div><span class="n">640</span><span class="l">Projekte realisiert</span></div>
+          <div><span class="n">18</span><span class="l">Mitarbeiter & Meister</span></div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="truss-card">
+          <div class="grid-bg"></div>
+          <span class="label">Abbundplan · Pfettendach</span>
+          <!-- signature: drawn timber truss -->
+          <svg viewBox="0 0 400 440" fill="none" stroke="#d08a36" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+            <!-- main rafters -->
+            <path class="draw" style="animation-delay:.4s" d="M40 300 L200 90 L360 300" stroke="#e6a85a" stroke-width="3"/>
+            <!-- tie beam -->
+            <path class="draw" style="animation-delay:.7s" d="M40 300 L360 300" stroke="#e6a85a" stroke-width="3"/>
+            <!-- king post -->
+            <path class="draw" style="animation-delay:1s" d="M200 90 L200 300"/>
+            <!-- struts -->
+            <path class="draw" style="animation-delay:1.2s" d="M200 300 L120 195"/>
+            <path class="draw" style="animation-delay:1.2s" d="M200 300 L280 195"/>
+            <!-- collar -->
+            <path class="draw" style="animation-delay:1.4s" d="M120 195 L280 195"/>
+            <!-- secondary rafters -->
+            <path class="draw" style="animation-delay:1.55s" d="M120 195 L160 145 M280 195 L240 145" stroke-width="1.4" opacity=".7"/>
+            <!-- purlins -->
+            <circle cx="200" cy="90" r="5" fill="#d08a36" stroke="none"/>
+            <circle cx="120" cy="195" r="4" fill="#d08a36" stroke="none"/>
+            <circle cx="280" cy="195" r="4" fill="#d08a36" stroke="none"/>
+            <circle cx="200" cy="300" r="4" fill="#d08a36" stroke="none"/>
+            <!-- dimension line -->
+            <path d="M40 330 L360 330" stroke="#8a6a3a" stroke-width="1" stroke-dasharray="4 4"/>
+            <path d="M40 324 L40 336 M360 324 L360 336" stroke="#8a6a3a" stroke-width="1"/>
+            <text x="200" y="324" fill="#bca27a" font-size="13" font-family="Hanken Grotesk" text-anchor="middle" stroke="none">11,40 m</text>
+          </svg>
+          <div class="caption"><span>Konstruktion · KVH / BSH</span><span>Maßstab 1:50</span></div>
+        </div>
+        <div class="spec-chip one">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <div class="t"><b>PEFC</b>zertifiziertes Holz</div>
+        </div>
+        <div class="spec-chip two">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div class="t"><b>10 Tage</b>vom Plan zur Montage</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Dachstühle</span><span>Holzrahmenbau</span><span>Carports</span><span>Aufstockungen</span><span>Dachsanierung</span><span>Terrassen</span><span>Innenausbau</span>
+    <span>Dachstühle</span><span>Holzrahmenbau</span><span>Carports</span><span>Aufstockungen</span><span>Dachsanierung</span><span>Terrassen</span><span>Innenausbau</span>
+  </div>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<section class="sec services" id="leistungen">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Was wir können</span>
+      <h2>Ein Gewerk. <em>Volle Verantwortung.</em></h2>
+      <p>Wir planen, fertigen und montieren — vom ersten Aufmaß bis zur letzten Schraube. So bleibt die Qualität in einer Hand und Sie haben einen Ansprechpartner.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc reveal d1">
+        <span class="num">01</span>
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 30 24 10l18 20"/><path d="M12 30 24 18l12 12"/><path d="M6 30h36v8H6z"/></svg>
+        <h3>Dachstühle</h3>
+        <p>Pfetten-, Sparren- und Kehlbalkendächer — millimetergenau abgebunden in unserer Halle, sturmsicher montiert auf Ihrem Rohbau.</p>
+        <span class="more">Mehr erfahren →</span>
+      </article>
+      <article class="svc reveal d2">
+        <span class="num">02</span>
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M8 22 24 8l16 14v18H8z"/><path d="M20 40V28h8v12"/></svg>
+        <h3>Holzhäuser</h3>
+        <p>Holzrahmen- und Holztafelbau für Wohngebäude — diffusionsoffen, hoch gedämmt und schlüsselfertig auf Wunsch.</p>
+        <span class="more">Mehr erfahren →</span>
+      </article>
+      <article class="svc reveal d3">
+        <span class="num">03</span>
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 18 24 8l18 10"/><path d="M10 18v22M38 18v22M10 40h28"/><path d="M18 40V26h12v14"/></svg>
+        <h3>Carports & Terrassen</h3>
+        <p>Freitragende Carports, überdachte Terrassen und Pergolen aus heimischem Lärchen- und Douglasienholz.</p>
+        <span class="more">Mehr erfahren →</span>
+      </article>
+      <article class="svc reveal d1">
+        <span class="num">04</span>
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 28 24 12l18 16"/><path d="M30 6l4 4-4 4-4-4z"/><path d="M10 28v12h28V28"/></svg>
+        <h3>Dachsanierung</h3>
+        <p>Energetische Sanierung, neue Dämmung und Eindeckung — wir bringen Ihren Altbau auf den heutigen Stand.</p>
+        <span class="more">Mehr erfahren →</span>
+      </article>
+      <article class="svc reveal d2">
+        <span class="num">05</span>
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M8 40V20l16-12 16 12v20"/><path d="M8 26h32M24 8v32"/></svg>
+        <h3>Aufstockungen</h3>
+        <p>Mehr Wohnraum ohne Umzug: wir setzen ganze Geschosse in Holzbauweise auf bestehende Gebäude — schnell und trocken.</p>
+        <span class="more">Mehr erfahren →</span>
+      </article>
+      <article class="svc reveal d3">
+        <span class="num">06</span>
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 12h36v24H6z"/><path d="M6 20h36M14 12v24M26 20v16"/></svg>
+        <h3>Innenausbau</h3>
+        <p>Sichtbare Holzdecken, Trockenbau, Böden und maßgefertigte Einbauten — der warme letzte Schliff im Innenraum.</p>
+        <span class="more">Mehr erfahren →</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="sec projects" id="projekte">
+  <div class="wrap">
+    <div class="proj-head">
+      <div class="reveal">
+        <span class="eyebrow">Ausgewählte Projekte</span>
+        <h2 style="font-size:clamp(2.1rem,4.6vw,3.6rem);font-weight:330;margin-top:18px;letter-spacing:-.03em">Gebaut in <em style="font-style:italic;color:var(--wood-2)">Niederbayern</em></h2>
+      </div>
+      <a href="#kontakt" class="btn ghost reveal d2">Alle Referenzen →</a>
+    </div>
+    <div class="proj-grid">
+      <article class="proj big p1 reveal d1">
+        <div class="woodlines"></div>
+        <span class="open">→</span>
+        <div class="meta"><span class="tag">Holzhaus · Neubau</span><h3>Wohnhaus am Isarhang</h3><div class="loc">Landshut · 2024 · 184 m²</div></div>
+      </article>
+      <article class="proj tall p2 reveal d2">
+        <div class="woodlines"></div>
+        <span class="open">→</span>
+        <div class="meta"><span class="tag">Dachstuhl</span><h3>Pfettendach Vierseithof</h3><div class="loc">Ergolding · 2024</div></div>
+      </article>
+      <article class="proj wide p3 reveal d1">
+        <div class="woodlines"></div>
+        <span class="open">→</span>
+        <div class="meta"><span class="tag">Aufstockung</span><h3>Geschossaufbau in Holz</h3><div class="loc">Dingolfing · 2023</div></div>
+      </article>
+      <article class="proj wide p4 reveal d2">
+        <div class="woodlines"></div>
+        <span class="open">→</span>
+        <div class="meta"><span class="tag">Carport</span><h3>Doppelcarport Lärche</h3><div class="loc">Vilsbiburg · 2023</div></div>
+      </article>
+      <article class="proj wide p5 reveal d3">
+        <div class="woodlines"></div>
+        <span class="open">→</span>
+        <div class="meta"><span class="tag">Sanierung</span><h3>Denkmal-Dachsanierung</h3><div class="loc">Landshut Altstadt · 2022</div></div>
+      </article>
+      <article class="proj wide p6 reveal d4">
+        <div class="woodlines"></div>
+        <span class="open">→</span>
+        <div class="meta"><span class="tag">Innenausbau</span><h3>Sichtdachstuhl Loft</h3><div class="loc">Essenbach · 2022</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY WOOD ============ -->
+<section class="sec why">
+  <svg class="why-deco" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 150 100 40l80 110z"/><path d="M50 150 100 80l50 70zM100 40v110"/></svg>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Warum Holz</span>
+      <h2>Der Baustoff mit <em>Zukunft.</em></h2>
+      <p>Holz ist nicht nur schön — es ist der durchdachteste Baustoff unserer Zeit. Nachwachsend, CO₂-speichernd und behaglich.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal d1">
+        <svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 28V14M16 14c0-6 5-10 11-10 0 6-5 10-11 10zM16 18c0-5-4-8-9-8 0 5 4 8 9 8z"/></svg>
+        <h3>Nachhaltig</h3><p>Jeder Kubikmeter verbautes Holz bindet rund eine Tonne CO₂ — dauerhaft in Ihrem Gebäude.</p>
+      </div>
+      <div class="why-card reveal d2">
+        <svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3 4 9v8c0 7 5 11 12 13 7-2 12-6 12-13V9z"/><path d="M11 16l3 3 6-6"/></svg>
+        <h3>Wohngesund</h3><p>Diffusionsoffene Wände regulieren Feuchte natürlich — für ein angenehmes, allergenarmes Raumklima.</p>
+      </div>
+      <div class="why-card reveal d3">
+        <svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4v6M16 22v6M4 16h6M22 16h6M8 8l4 4M20 20l4 4M24 8l-4 4M12 20l-4 4"/></svg>
+        <h3>Schnell trocken</h3><p>Vorgefertigt in der Halle, in Tagen montiert. Keine Trockenzeiten, kein monatelanger Baulärm.</p>
+      </div>
+      <div class="why-card reveal d4">
+        <svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 26 16 6l10 20zM11 26l5-10 5 10z"/></svg>
+        <h3>Hoch gedämmt</h3><p>Schlanke Wände, top U-Werte. Mehr Wohnfläche bei besserer Energiebilanz — KfW-fähig.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="sec process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">So arbeiten wir</span>
+      <h2>In vier Schritten <em>aufs Dach.</em></h2>
+      <p>Transparent von Anfang an. Sie wissen jederzeit, woran wir gerade arbeiten und was als Nächstes kommt.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal d1"><div class="dot">01</div><h3>Beratung</h3><p>Wir kommen vorbei, hören zu und nehmen auf. Kostenlos und unverbindlich — vor Ort bei Ihnen.</p></div>
+      <div class="step reveal d2"><div class="dot">02</div><h3>Planung</h3><p>Statik, 3D-Abbundplanung und ein festes Angebot. Sie sehen Ihr Projekt, bevor das erste Holz fällt.</p></div>
+      <div class="step reveal d3"><div class="dot">03</div><h3>Fertigung</h3><p>Präziser CNC-Abbund in unserer Halle — wettergeschützt und auf den Millimeter genau.</p></div>
+      <div class="step reveal d4"><div class="dot">04</div><h3>Montage</h3><p>Unser Team richtet auf und übergibt besenrein. Termintreu und sauber.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="sec about" id="ueber">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-vis reveal">
+        <div class="grid-bg"></div>
+        <svg viewBox="0 0 400 448" fill="none" stroke="#e6a85a" stroke-width="2" stroke-linejoin="round" aria-hidden="true">
+          <path d="M70 360 L200 150 L330 360 Z" stroke-width="3"/>
+          <path d="M70 360 H330" stroke-width="3"/>
+          <path d="M200 150 V360 M200 360 L110 250 M200 360 L290 250 M110 250 H290"/>
+          <path d="M150 215 L250 215" stroke-width="1.3" opacity=".6"/>
+          <rect x="150" y="300" width="40" height="60" stroke-width="1.4" opacity=".7"/>
+          <rect x="215" y="300" width="40" height="40" stroke-width="1.4" opacity=".7"/>
+        </svg>
+        <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="cir" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+          <circle cx="60" cy="60" r="58" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="60" cy="60" r="44" fill="none" stroke="currentColor" stroke-width="1"/>
+          <text font-family="Hanken Grotesk" font-size="9.5" font-weight="700" letter-spacing="3" fill="currentColor"><textPath href="#cir" startOffset="0%">· MEISTERBETRIEB · SEIT 1989 · NIEDERBAYERN </textPath></text>
+          <path d="M48 60 L57 69 L74 50" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="about-info">
+        <span class="eyebrow reveal">Über AIGNER</span>
+        <h2 class="reveal d1">Drei Generationen <em>Holzverstand.</em></h2>
+        <p class="reveal d1">Was 1989 in einer kleinen Werkstatt in Niederbayern begann, ist heute ein Meisterbetrieb mit 18 Mitarbeitern — und derselben Haltung wie am ersten Tag: Ein Handschlag gilt. Termine halten. Und Holz nur dort verbauen, wo wir auch selbst wohnen würden.</p>
+        <p class="reveal d2">Wir setzen auf heimische Hölzer, kurze Wege und eine eigene Abbundhalle. So behalten wir jede Faser unter Kontrolle — vom Stamm bis zum fertigen First.</p>
+        <ul class="about-list reveal d2">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Eigene Abbundhalle</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Meister & Azubis im Team</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Festpreis-Garantie</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Regional verwurzelt</li>
+        </ul>
+        <div class="sign reveal d3">Martin Aigner<small>Zimmermeister & Inhaber</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="sec stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat reveal d1"><div class="n" data-count="35" data-suffix="+">0</div><div class="l">Jahre am Markt</div></div>
+      <div class="stat reveal d2"><div class="n" data-count="640">0</div><div class="l">Dächer & Häuser gebaut</div></div>
+      <div class="stat reveal d3"><div class="n" data-count="100" data-suffix="%">0</div><div class="l">Termintreue 2024</div></div>
+      <div class="stat reveal d4"><div class="n" data-count="12000" data-suffix=" m³">0</div><div class="l">Holz verbaut</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="sec testi">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow" style="justify-content:center">Stimmen unserer Bauherren</span>
+      <h2>Was am Ende <em>zählt.</em></h2>
+    </div>
+    <div class="testi-grid">
+      <article class="quote reveal d1">
+        <div class="stars">★★★★★</div>
+        <p>„Der Dachstuhl stand an einem Tag — und alles passte auf den Millimeter. So eine saubere Baustelle haben wir noch nie erlebt."</p>
+        <div class="who"><div class="av">FH</div><div><b>Familie Huber</b><span>Einfamilienhaus, Ergolding</span></div></div>
+      </article>
+      <article class="quote reveal d2">
+        <div class="stars">★★★★★</div>
+        <p>„Festpreis war Festpreis. Keine bösen Überraschungen, ehrliche Beratung und ein Team, dem man beim Arbeiten gern zuschaut."</p>
+        <div class="who"><div class="av">SB</div><div><b>S. Brandl</b><span>Aufstockung, Dingolfing</span></div></div>
+      </article>
+      <article class="quote reveal d3">
+        <div class="stars">★★★★★</div>
+        <p>„Unser denkmalgeschütztes Dach war eine Herausforderung. Aigner hat sie mit echtem Handwerksstolz gelöst. Absolute Empfehlung."</p>
+        <div class="who"><div class="av">RW</div><div><b>Dr. R. Weiß</b><span>Sanierung, Landshut</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAREER ============ -->
+<section class="sec career" id="karriere">
+  <svg class="career-deco" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 150 100 40l80 110zM50 150 100 80l50 70zM100 40v110"/></svg>
+  <div class="wrap">
+    <div class="career-grid">
+      <div>
+        <span class="eyebrow">Karriere bei Aigner</span>
+        <h2>Bau mit an dem, <em>was bleibt.</em></h2>
+        <p>Wir suchen Hände, die anpacken, und Köpfe, die mitdenken. Bei uns gibt's keine Massenabfertigung — sondern echtes Handwerk, faire Bezahlung und ein Team, das zusammenhält.</p>
+        <a href="#kontakt" class="btn" style="background:var(--cream);color:var(--espresso)">Initiativ bewerben <span class="arr">→</span></a>
+      </div>
+      <div class="jobs">
+        <a href="#kontakt" class="job"><div><b>Zimmerer (m/w/d)</b><div class="type">Vollzeit · Landshut</div></div><span class="go">→</span></a>
+        <a href="#kontakt" class="job"><div><b>Azubi Zimmerer (m/w/d)</b><div class="type">Ausbildung ab Sept. · 3 Plätze</div></div><span class="go">→</span></a>
+        <a href="#kontakt" class="job"><div><b>Holzbau-Vorarbeiter (m/w/d)</b><div class="type">Vollzeit · Montage</div></div><span class="go">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="sec contact" id="kontakt">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="eyebrow reveal">Kontakt</span>
+        <h2 class="reveal d1">Reden wir über <em>Ihr Projekt.</em></h2>
+        <p class="reveal d1">Egal ob konkrete Anfrage oder erste Idee — schreiben Sie uns. Wir melden uns innerhalb von 24 Stunden mit einem ehrlichen ersten Einschätzung.</p>
+        <div class="cinfo reveal d2">
+          <span class="lbl">Telefon</span>
+          <a href="tel:+498711234567"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 0871 123456 7</a>
+          <span class="lbl">E-Mail</span>
+          <a href="mailto:servus@aigner-holzbau.de"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> servus@aigner-holzbau.de</a>
+          <span class="lbl">Werkstatt & Halle</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Sägewerkstraße 4, 84028 Landshut</span>
+        </div>
+      </div>
+      <form class="form reveal d2" onsubmit="event.preventDefault();this.querySelector('.btn').textContent='Danke — wir melden uns!';this.querySelector('.btn').style.background='var(--wood-2)';">
+        <div class="row">
+          <div class="field"><label>Name</label><input type="text" placeholder="Ihr Name" required></div>
+          <div class="field"><label>Telefon</label><input type="tel" placeholder="Für Rückfragen"></div>
+        </div>
+        <div class="field"><label>E-Mail</label><input type="email" placeholder="name@email.de" required></div>
+        <div class="field"><label>Ihr Vorhaben</label>
+          <select>
+            <option>Dachstuhl / Neubau</option>
+            <option>Holzhaus</option>
+            <option>Carport / Terrasse</option>
+            <option>Dachsanierung</option>
+            <option>Aufstockung</option>
+            <option>Innenausbau</option>
+            <option>Sonstiges</option>
+          </select>
+        </div>
+        <div class="field"><label>Nachricht</label><textarea placeholder="Erzählen Sie uns kurz von Ihrem Projekt …"></textarea></div>
+        <button type="submit" class="btn">Anfrage senden <span class="arr">→</span></button>
+        <p class="fine">Wir behandeln Ihre Daten vertraulich. Keine Weitergabe an Dritte.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="brand">
+          <svg class="logomark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="37" height="37" rx="9" stroke="#d08a36" stroke-width="1.5"/><path d="M8 27 L20 9 L32 27" stroke="#e6a85a" stroke-width="2" stroke-linejoin="round"/><path d="M13 27 L20 16 L27 27 M20 9 V20" stroke="#d08a36" stroke-width="1.6"/><line x1="8" y1="27" x2="32" y2="27" stroke="#e6a85a" stroke-width="2"/></svg>
+          <span style="font-weight:600;color:#faf6ec">AIGNER</span><b style="color:#faf6ec">Holzbau</b>
+        </a>
+        <p>Meisterhafter Holzbau aus Niederbayern. Dachstühle, Holzhäuser und Sanierungen — ehrlich, präzise, aus einer Hand.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Leistungen</h4>
+        <ul><li><a href="#leistungen">Dachstühle</a></li><li><a href="#leistungen">Holzhäuser</a></li><li><a href="#leistungen">Carports</a></li><li><a href="#leistungen">Sanierung</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h4>Betrieb</h4>
+        <ul><li><a href="#ueber">Über uns</a></li><li><a href="#projekte">Projekte</a></li><li><a href="#karriere">Karriere</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h4>Kontakt</h4>
+        <ul><li><a href="tel:+498711234567">0871 123456 7</a></li><li><a href="mailto:servus@aigner-holzbau.de">servus@aigner-holzbau.de</a></li><li><a href="#">Sägewerkstraße 4<br>84028 Landshut</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr"></span> AIGNER Holzbau GmbH · Alle Rechte vorbehalten</span>
+      <span style="display:flex;gap:20px"><a href="#">Impressum</a><a href="#">Datenschutz</a></span>
+      <span class="made">Gestaltet von <a href="https://xepoter.de">xepoter.de</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* header scroll state */
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>30),{passive:true});
+
+/* mobile menu */
+const burger=document.getElementById('burger');
+burger.addEventListener('click',()=>{
+  document.body.classList.toggle('mobile-open');
+  burger.setAttribute('aria-label',document.body.classList.contains('mobile-open')?'Menü schließen':'Menü öffnen');
+});
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('mobile-open')));
+
+/* scroll reveal */
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* stat counters */
+const fmt=n=>n>=1000?n.toLocaleString('de-DE'):n;
+const cio=new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,end=+el.dataset.count,suf=el.dataset.suffix||'';
+    let t0=null;const dur=1600;
+    const tick=t=>{if(!t0)t0=t;const p=Math.min((t-t0)/dur,1);const ease=1-Math.pow(1-p,3);
+      el.textContent=fmt(Math.round(end*ease))+suf;if(p<1)requestAnimationFrame(tick);};
+    requestAnimationFrame(tick);cio.unobserve(el);
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+/* year */
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
