@@ -1,0 +1,121 @@
+[
+  {
+    "slug": "wohnhaus-isarhang",
+    "title": "Wohnhaus am Isarhang",
+    "tag": "Holzhaus · Neubau",
+    "location": "Landshut",
+    "year": "2024",
+    "hero": "assets/wohnhaus-isarhang.jpg",
+    "lead": "Ein diffusionsoffenes Holzrahmenhaus am Hang — hoch gedämmt, lichtdurchflutet und in nur sieben Monaten schlüsselfertig.",
+    "facts": [
+      { "label": "Bauweise", "value": "Holzrahmenbau" },
+      { "label": "Wohnfläche", "value": "184 m²" },
+      { "label": "Bauzeit", "value": "7 Monate" },
+      { "label": "Holzart", "value": "Fichte / Lärche" }
+    ],
+    "aufgabe": "Die Bauherren wünschten sich ein modernes Effizienzhaus an einem steilen Südhang mit Blick ins Isartal — wohngesund, energiesparend und mit viel sichtbarem Holz. Die Hanglage und ein enges Zeitfenster vor dem Winter machten die Vorfertigung zur Schlüsselfrage.",
+    "loesung": "Wände, Decken und Dach haben wir komplett in unserer Halle vorgefertigt — millimetergenau abgebunden und gedämmt. Innerhalb von drei Tagen stand der wetterfeste Rohbau auf der vorbereiteten Bodenplatte. Großflächige Lärchen-Fenster nach Süden, eine Holzfassade aus heimischer Lärche und eine diffusionsoffene Konstruktion sorgen für ein behagliches Raumklima.",
+    "ergebnis": "Ein KfW-fähiges Effizienzhaus, das im Sommer kühl und im Winter warm bleibt — und das dank Vorfertigung pünktlich vor dem ersten Schnee unter Dach war. Jeder verbaute Kubikmeter Holz bindet hier dauerhaft CO₂.",
+    "gallery": ["assets/wohnhaus-isarhang.jpg", "assets/geschossaufbau.jpg", "assets/sichtdachstuhl-loft.jpg"]
+  },
+  {
+    "slug": "pfettendach-vierseithof",
+    "title": "Pfettendach Vierseithof",
+    "tag": "Dachstuhl",
+    "location": "Ergolding",
+    "year": "2024",
+    "hero": "assets/pfettendach-vierseithof.jpg",
+    "lead": "Ein weitgespanntes Pfettendach für einen denkmalnahen Vierseithof — traditionell gefügt, modern berechnet.",
+    "facts": [
+      { "label": "Konstruktion", "value": "Pfettendach" },
+      { "label": "Spannweite", "value": "11,40 m" },
+      { "label": "Material", "value": "KVH / BSH" },
+      { "label": "Montage", "value": "2 Tage" }
+    ],
+    "aufgabe": "Der historische Vierseithof brauchte einen neuen, statisch tragfähigen Dachstuhl, der sich harmonisch in das bestehende Ensemble einfügt — bei großer Spannweite und ohne störende Stützen im Inneren.",
+    "loesung": "Wir haben ein klassisches Pfettendach mit liegendem Stuhl geplant, statisch in BSH ausgeführt und in unserer Halle CNC-abgebunden. Die sichtbaren Verbindungen sind traditionell gezimmert — Versätze und Zapfen statt Stahlwinkel, wo es das Auge sieht.",
+    "ergebnis": "Ein Dachtragwerk, das Generationen hält und dem Hof seine Würde zurückgibt. Die Montage war an zwei Tagen abgeschlossen, der Innenraum bleibt stützenfrei nutzbar.",
+    "gallery": ["assets/pfettendach-vierseithof.jpg", "assets/denkmal-dachsanierung.jpg", "assets/sichtdachstuhl-loft.jpg"]
+  },
+  {
+    "slug": "geschossaufbau",
+    "title": "Geschossaufbau in Holz",
+    "tag": "Aufstockung",
+    "location": "Dingolfing",
+    "year": "2023",
+    "hero": "assets/geschossaufbau.jpg",
+    "lead": "Ein komplettes Wohngeschoss in Holztafelbauweise — aufgesetzt auf den Bestand, bei laufendem Betrieb darunter.",
+    "facts": [
+      { "label": "Bauweise", "value": "Holztafelbau" },
+      { "label": "Neue Fläche", "value": "96 m²" },
+      { "label": "Aufrichtung", "value": "1 Tag" },
+      { "label": "Last", "value": "leicht & trocken" }
+    ],
+    "aufgabe": "Eine Familie brauchte mehr Platz, wollte aber nicht umziehen. Auf dem bestehenden Flachdachbungalow sollte ein vollwertiges Wohngeschoss entstehen — ohne die Bewohner über Wochen auszuquartieren.",
+    "loesung": "Holz ist hier der ideale Baustoff: leicht genug für die vorhandene Statik, trocken und schnell. Die kompletten Wand- und Dachelemente wurden vorgefertigt und an einem einzigen Tag per Kran aufgesetzt. Das Bestandsdach war abends wieder regensicher geschlossen.",
+    "ergebnis": "Zwei neue Kinderzimmer, ein Bad und ein Studio — ohne monatelange Baustelle und ohne Umzug. Die Trockenbauweise machte den Innenausbau unmittelbar möglich.",
+    "gallery": ["assets/geschossaufbau.jpg", "assets/wohnhaus-isarhang.jpg", "assets/pfettendach-vierseithof.jpg"]
+  },
+  {
+    "slug": "doppelcarport-laerche",
+    "title": "Doppelcarport Lärche",
+    "tag": "Carport",
+    "location": "Vilsbiburg",
+    "year": "2023",
+    "hero": "assets/carport-laerche.jpg",
+    "lead": "Ein freitragender Doppelcarport aus heimischer Lärche — offen, elegant und ohne störende Mittelstütze.",
+    "facts": [
+      { "label": "Holzart", "value": "Lärche, sägerau" },
+      { "label": "Stellplätze", "value": "2 + Geräteraum" },
+      { "label": "Konstruktion", "value": "freitragend" },
+      { "label": "Schutz", "value": "naturbelassen" }
+    ],
+    "aufgabe": "Gewünscht war ein Unterstand für zwei Fahrzeuge plus Stauraum, der nicht wie ein Fremdkörper wirkt, sondern zum Holzhaus und Garten passt — und der ohne Mittelstütze bequem befahrbar ist.",
+    "loesung": "Aus heimischer Lärche haben wir eine freitragende Konstruktion mit verdeckten Stahlverbindern gefertigt. Das Holz bleibt naturbelassen und vergraut mit der Zeit zu einem edlen Silbergrau — wartungsfrei und langlebig.",
+    "ergebnis": "Ein Carport, der mehr ist als ein Zweckbau: ein ruhiges, handwerklich sauberes Element, das den Hof aufwertet und Jahrzehnte ohne Pflege übersteht.",
+    "gallery": ["assets/carport-laerche.jpg", "assets/wohnhaus-isarhang.jpg", "assets/geschossaufbau.jpg"]
+  },
+  {
+    "slug": "denkmal-dachsanierung",
+    "title": "Denkmal-Dachsanierung",
+    "tag": "Sanierung",
+    "location": "Landshut Altstadt",
+    "year": "2022",
+    "hero": "assets/denkmal-dachsanierung.jpg",
+    "lead": "Die behutsame Sanierung eines denkmalgeschützten Dachstuhls in der Landshuter Altstadt — Substanz erhalten, Statik ertüchtigt.",
+    "facts": [
+      { "label": "Objekt", "value": "Denkmalschutz" },
+      { "label": "Baujahr", "value": "um 1780" },
+      { "label": "Leistung", "value": "Reparatur & Dämmung" },
+      { "label": "Verbindungen", "value": "handgezimmert" }
+    ],
+    "aufgabe": "Der über 240 Jahre alte Dachstuhl eines Altstadthauses war an tragenden Punkten geschädigt. In enger Abstimmung mit dem Denkmalschutz sollte so viel historische Substanz wie möglich erhalten und das Dach zugleich energetisch ertüchtigt werden.",
+    "loesung": "Wir haben jeden Balken einzeln begutachtet, schadhafte Hölzer mit traditionellen Holzverbindungen — Blattungen und Zapfen — partiell ausgetauscht und gesundes Eichenholz erhalten. Eine diffusionsoffene Aufdachdämmung bringt den Altbau auf einen zeitgemäßen Stand, ohne das Erscheinungsbild zu verändern.",
+    "ergebnis": "Ein gerettetes Stück Stadtgeschichte: statisch sicher, gedämmt und für weitere Generationen vorbereitet — vom Denkmalamt ausdrücklich gelobt.",
+    "beforeAfter": {
+      "before": "assets/pfettendach-vierseithof.jpg",
+      "after": "assets/denkmal-dachsanierung.jpg",
+      "caption": "Vom geschädigten Bestand zum sanierten Dachstuhl — ziehen Sie den Regler."
+    },
+    "gallery": ["assets/denkmal-dachsanierung.jpg", "assets/pfettendach-vierseithof.jpg", "assets/sichtdachstuhl-loft.jpg"]
+  },
+  {
+    "slug": "sichtdachstuhl-loft",
+    "title": "Sichtdachstuhl Loft",
+    "tag": "Innenausbau",
+    "location": "Essenbach",
+    "year": "2022",
+    "hero": "assets/sichtdachstuhl-loft.jpg",
+    "lead": "Ein offener Sichtdachstuhl wird zum Herzstück eines Loft-Ausbaus — Konstruktion als Gestaltung.",
+    "facts": [
+      { "label": "Charakter", "value": "Sichtkonstruktion" },
+      { "label": "Fläche", "value": "72 m²" },
+      { "label": "Oberfläche", "value": "geseift / geölt" },
+      { "label": "Detail", "value": "sichtbare Zapfen" }
+    ],
+    "aufgabe": "Unter einem alten Scheunendach sollte ein Wohn-Loft entstehen, das die mächtige Holzkonstruktion nicht verkleidet, sondern feiert — und dabei wohnliche Behaglichkeit erreicht.",
+    "loesung": "Wir haben das Tragwerk freigelegt, gereinigt und mit einer natürlichen Seifen- und Öl-Oberfläche veredelt. Neue Einbauten — Galerie, Treppe und Wandschränke — sind präzise auf die bestehenden Sparren abgestimmt und maßgefertigt.",
+    "ergebnis": "Ein Raum mit Charakter, in dem jede Verbindung sichtbar bleibt. Handwerk wird hier zur Architektur — warm, ehrlich und einzigartig.",
+    "gallery": ["assets/sichtdachstuhl-loft.jpg", "assets/geschossaufbau.jpg", "assets/denkmal-dachsanierung.jpg"]
+  }
+]

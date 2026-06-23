@@ -5,7 +5,26 @@ Fiktive Premium-Zimmerei aus Niederbayern. Doppelter Zweck:
 2. **Wiederverwendbares Branchen-Template** — Basis, die du an echte Handwerker (Zimmerei, Dachdecker, Holzbau) verkaufst.
 
 ## Starten
-Einfach `index.html` im Browser öffnen. Eine Datei, keine Abhängigkeiten außer Google Fonts (Fraunces + Hanken Grotesk, per CDN).
+Lokal mit einem statischen Server öffnen (wegen der Unterseiten & Fonts), z. B.:
+```bash
+python3 -m http.server 8473   # -> http://localhost:8473
+```
+Keine externen Abhängigkeiten: Die Schriften (Fraunces + Hanken Grotesk) sind **lokal gehostet** (`assets/fonts/`, eingebunden über `fonts.css`) — DSGVO-konform, keine Requests an Google.
+
+## Dateien
+- `index.html` — die Hauptseite (HTML/CSS/JS inline)
+- `projekt-<slug>.html` — generierte Projekt-Detailseiten (nicht von Hand editieren)
+- `content/projects.json` — Content-Modell der Projekte (= spätere CMS-Collection)
+- `build.py` — Generator: `python3 build.py` erzeugt die Projektseiten aus der JSON
+- `projekt.css`, `projekt.js` — Styling + Galerie-Lightbox der Projektseiten
+- `impressum.html`, `datenschutz.html` — Rechtsseiten (Mustertexte, vor Echteinsatz prüfen lassen)
+- `fonts.css` — `@font-face` für die lokalen Schriften
+- `legal.css` — gemeinsames Stylesheet der Rechtsseiten
+- `favicon.svg` — Favicon (basiert auf dem Dachstuhl-Logo)
+- `assets/` — Web-Fotos + `assets/fonts/` · `assets/_full/` = Original-Fotos (nur Quelle)
+- `Projektdoku.md` — Projektdokumentation
+
+> **Projektseiten ändern:** `content/projects.json` anpassen → `python3 build.py` → fertig.
 
 ## Brand-Eckdaten (fiktiv – frei anpassbar)
 - Name: **AIGNER Holzbau**, Meisterbetrieb seit 1989, Landshut / Niederbayern
